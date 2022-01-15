@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Service\Infrastructure\Service.Interface.Base\Service.Interface.Base.csproj" />
+    <ProjectReference Include="..\Base\ForecastClient.Runner.Base.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ForecastService.Interface">
+      <HintPath>..\..\..\..\Service\ForecastService\Interface\bin\Debug\net6.0\ForecastService.Interface.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

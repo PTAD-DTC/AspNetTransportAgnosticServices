@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ForecastService.RestServer</name>
+    </assembly>
+    <members>
+        <member name="T:ForecastService.RestServer.ControllerBaseCore`1">
+            <summary>
+            Base class for Forecast service controllers 
+            </summary>
+        </member>
+        <member name="M:ForecastService.RestServer.ControllerBaseCore`1.#ctor(`0,System.String)">
+            <summary>
+            ctor
+            </summary>
+        </member>
+        <member name="T:ForecastService.RestServer.V2_1.Controllers.CommentController">
+            <summary>
+            Controller responsible for weather forecasts comments
+            </summary>
+        </member>
+        <member name="M:ForecastService.RestServer.V2_1.Controllers.CommentController.#ctor(ForecastService.Interface.IForecastService)">
+            <summary>
+            ctor
+            </summary>
+        </member>
+        <member name="M:ForecastService.RestServer.V2_1.Controllers.CommentController.GetForecastComments(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Returns comments for forecast
+            </summary>
+            <param name="forecastId">Forecast id</param>
+            <param name="cancellationToken">Operation cancellation notification</param>
+        </member>
+        <member name="M:ForecastService.RestServer.V2_1.Controllers.CommentController.AddComment(System.Guid,ForecastService.Interface.Models.DTO.ForecastCommentDataDto,System.Threading.CancellationToken)">
+            <summary>
+            Creates new comment
+            </summary>
+            <param name="forecastId">Forecast id</param>
+            <param name="commentData">Comment data</param>
+            <param name="cancellationToken">Operation cancellation notification</param>
+        </member>
+        <member name="M:ForecastService.RestServer.V2_1.Controllers.CommentController.GetComment(System.Guid,System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Returns specified comment
+            </summary>
+            <param name="forecastId">Forecast id</param>
+            <param name="commentId">Comment id</param>
+            <param name="cancellationToken">Operation cancellation notification</param>
+        </member>
+        <member name="M:ForecastService.RestServer.V2_1.Controllers.CommentController.UpdateComment(System.Guid,System.Guid,ForecastService.Interface.Models.DTO.ForecastCommentDataDto,System.Threading.CancellationToken)">
+            <summary>
+            Updates comment
+            </summary>
+            <param name="forecastId">Forecast id</param>
+            <param name="commentId">comment id</param>
+            <param name="commentData">Comment</param>
+            <param name="cancellationToken">Operation cancellation notification</param>
+        </member>
+        <member name="T:ForecastService.RestServer.V2_1.Controllers.ControllerBaseForecastService">
+            <summary>
+            Base class for WeatherService controllers 
+            </summary>
+        </member>
+        <member name="M:ForecastService.RestServer.V2_1.Controllers.ControllerBaseForecastService.#ctor(ForecastService.Interface.IForecastService)">
+            <summary>
+            ctor
+            </summary>
+        </member>
+        <member name="T:ForecastService.RestServer.V2_1.Controllers.ForecastController">
+            <summary>
+            Controller responsible for weather forecasts
+            </summary>
+        </member>
+        <member name="M:ForecastService.RestServer.V2_1.Controllers.ForecastController.#ctor(ForecastService.Interface.IForecastService)">
+            <summary>
+            ctor
+            </summary>
+        </member>
+        <member name="M:ForecastService.RestServer.V2_1.Controllers.ForecastController.GetTodayForecasts(System.Threading.CancellationToken)">
+            <summary>
+            Returns today's forecasts for all locations
+            </summary>
+            <param name="cancellationToken">Operation cancellation notification</param>
+        </member>
+        <member name="M:ForecastService.RestServer.V2_1.Controllers.ForecastController.GetLocationForecasts(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Returns forecasts for specified location
+            </summary>
+            <param name="location">location name</param>
+            <param name="cancellationToken">Operation cancellation notification</param>
+        </member>
+        <member name="M:ForecastService.RestServer.V2_1.Controllers.ForecastController.GetForecast(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Returns specified forecast
+            </summary>
+            <param name="forecastId"></param>
+            <param name="cancellationToken">Operation cancellation notification</param>
+        </member>
+    </members>
+</doc>

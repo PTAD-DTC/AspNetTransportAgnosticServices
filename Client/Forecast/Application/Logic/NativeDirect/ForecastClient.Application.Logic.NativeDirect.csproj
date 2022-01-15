@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\Service\CommentService\Implementation\BusinessLogic\CommentService.BusinessLogic.csproj" />
+    <ProjectReference Include="..\..\..\..\..\Service\CommentService\Implementation\Core\CommentService.Core.csproj" />
+    <ProjectReference Include="..\..\..\..\..\Service\CommentService\Implementation\DtoBlMapper\CommentService.DtoBlMapper.csproj" />
+    <ProjectReference Include="..\..\..\..\..\Service\CommentService\Implementation\Persistence\CommentService.Persistence.csproj" />
+    <ProjectReference Include="..\..\..\..\..\Service\CommentService\Interface\CommentService.Interface.csproj" />
+    <ProjectReference Include="..\..\..\..\..\Service\ForecastService\Implementation\BusinessLogic\ForecastService.BusinessLogic.csproj" />
+    <ProjectReference Include="..\..\..\..\..\Service\ForecastService\Implementation\CommentService\ForecastService.CommentService.csproj" />
+    <ProjectReference Include="..\..\..\..\..\Service\ForecastService\Implementation\Core\ForecastService.Core.csproj" />
+    <ProjectReference Include="..\..\..\..\..\Service\ForecastService\Implementation\DtoBlMapper\ForecastService.DtoBlMapper.csproj" />
+    <ProjectReference Include="..\..\..\..\..\Service\ForecastService\Implementation\Persistence\ForecastService.Persistence.csproj" />
+    <ProjectReference Include="..\..\..\..\..\Service\ForecastService\Transport\RestAPI\RestClient\Native.HttpClient\ForecastClient.Native.HttpClient.csproj" />
+    <ProjectReference Include="..\..\..\..\..\Service\ForecastService\Transport\RestAPI\RestClient\Native.RestClient\ForecastClient.Native.RestClient.csproj" />
+    <ProjectReference Include="..\..\..\Runner\Base\ForecastClient.Runner.Base.csproj" />
+    <ProjectReference Include="..\..\..\Runner\Native\ForecastClient.Runner.Native.csproj" />
+    <ProjectReference Include="..\Base\ForecastClient.Application.Logic.Base.csproj" />
+  </ItemGroup>
+
+</Project>

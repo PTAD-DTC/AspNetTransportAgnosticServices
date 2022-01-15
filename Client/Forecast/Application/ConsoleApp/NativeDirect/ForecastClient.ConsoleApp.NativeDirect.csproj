@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\UI.Console\Client.Console.UserInterface.csproj" />
+    <ProjectReference Include="..\..\Logic\NativeDirect\ForecastClient.Application.Logic.NativeDirect.csproj" />
+  </ItemGroup>
+
+</Project>

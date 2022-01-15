@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\CommentService\Interface\CommentService.Interface.csproj" />
+    <ProjectReference Include="..\..\..\Infrastructure\Helpers\Helpers.csproj" />
+    <ProjectReference Include="..\Services\ForecastService.Services.csproj" />
+  </ItemGroup>
+
+</Project>

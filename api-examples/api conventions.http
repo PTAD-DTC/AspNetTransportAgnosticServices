@@ -1,0 +1,24 @@
+
+### Variables
+@apiVersion=1.0
+# base url override for Fiddler on localhost
+# @baseUrlForecastService=http://localhost:6002
+
+### api version. Available versions: 1.0 2.0 2.1 3.0-beta
+GET {{baseUrlForecastService}}/api/ForecastService/Forecast/today?api-version={{apiVersion}}
+
+### default url convention (Debug only)
+GET {{baseUrlForecastService}}/api/ForecastService/Forecast/today
+
+### v1 url convention
+GET {{baseUrlForecastService}}/api/ForecastService/v1/Forecast/today
+
+### v2 url convention
+GET {{baseUrlForecastService}}/api/ForecastService/v2/Forecast/today
+
+### v2.1 url convention
+GET {{baseUrlForecastService}}/api/ForecastService/v2.1/Forecast/today
+
+### v3.0-Alpha url convention
+GET {{baseUrlForecastService}}/api/ForecastService/v3.0Alpha/Forecast/today
+

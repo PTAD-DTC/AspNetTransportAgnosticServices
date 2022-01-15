@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CommentService.RestServer</name>
+    </assembly>
+    <members>
+        <member name="T:CommentService.RestServer.ControllerBaseCore`1">
+            <summary>
+            Base class for Comment Service controllers 
+            </summary>
+        </member>
+        <member name="M:CommentService.RestServer.ControllerBaseCore`1.#ctor(`0,System.String)">
+            <summary>
+            ctor
+            </summary>
+        </member>
+        <member name="T:CommentService.RestServer.Controllers.V1_0.CommentController">
+            <summary>
+            Controller responsible for comments
+            </summary>
+        </member>
+        <member name="M:CommentService.RestServer.Controllers.V1_0.CommentController.#ctor(CommentService.Interface.ICommentService)">
+            <summary>
+            ctor
+            </summary>
+        </member>
+        <member name="M:CommentService.RestServer.Controllers.V1_0.CommentController.GetSubjectComments(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Returns comments for subject
+            </summary>
+            <param name="subjectId">Subject id</param>
+            <param name="cancellationToken">Operation cancellation notification</param>
+        </member>
+        <member name="M:CommentService.RestServer.Controllers.V1_0.CommentController.AddComment(System.Guid,CommentService.Interface.Models.DTO.CommentDataDto,System.Threading.CancellationToken)">
+            <summary>
+            Creates new comment
+            </summary>
+            <param name="subjectId">Subject id</param>
+            <param name="commentData">Comment request</param>
+            <param name="cancellationToken">Operation cancellation notification</param>
+        </member>
+        <member name="M:CommentService.RestServer.Controllers.V1_0.CommentController.FindComment(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Returns specified comment
+            </summary>
+            <param name="commentId">Comment id</param>
+            <param name="cancellationToken">Operation cancellation notification</param>
+        </member>
+        <member name="M:CommentService.RestServer.Controllers.V1_0.CommentController.UpdateComment(System.Guid,CommentService.Interface.Models.DTO.CommentDataDto,System.Threading.CancellationToken)">
+            <summary>
+            Updates comment
+            </summary>
+            <param name="commentId">comment id</param>
+            <param name="commentData">Comment</param>
+            <param name="cancellationToken">Operation cancellation notification</param>
+        </member>
+        <member name="T:CommentService.RestServer.Controllers.V1_0.ControllerBaseCommentService">
+            <summary>
+            Base class for WeatherService controllers 
+            </summary>
+        </member>
+        <member name="M:CommentService.RestServer.Controllers.V1_0.ControllerBaseCommentService.#ctor(CommentService.Interface.ICommentService)">
+            <summary>
+            ctor
+            </summary>
+        </member>
+    </members>
+</doc>

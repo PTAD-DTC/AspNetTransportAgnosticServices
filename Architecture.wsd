@@ -1,0 +1,69 @@
+@startuml Transport separation concept 
+
+package Client
+{
+    class ClientBusinessLogic
+    {
+
+    }
+}
+
+package Service.Interface
+{
+    interface IForecastService
+    {
+        WeatherForecasts GetTodayForecasts(...)
+        ...
+    }
+}
+
+package Transport.gRPC <<Cloud>>
+{
+    class ForecastTransportgRPCClient <<Composition>>
+    {
+        WeatherForecasts GetTodayForecasts(...)
+        ...
+    }
+
+    class ServiceHostgRPCAPI
+    {
+        //Transport specific
+    }
+}
+
+package Transport.Rest <<Cloud>>
+{
+    class ForecastTransportRestClient <<Composition>>
+    {
+        WeatherForecasts GetTodayForecasts(...)
+        ...
+    }
+
+    class ServiceHostRestAPI
+    {
+        //Transport specific
+    }
+}
+
+package Service.Implementation
+{
+    class ForecastServiceCore <<Composition>>
+    {
+        WeatherForecasts GetTodayForecasts(...)
+        ...
+    }
+}
+
+ClientBusinessLogic .left.> IForecastService
+ForecastServiceCore .up.|> IForecastService
+
+ForecastTransportgRPCClient .left.|> IForecastService
+ForecastTransportgRPCClient .down.> ServiceHostgRPCAPI
+ServiceHostgRPCAPI .left.|> IForecastService
+
+ForecastTransportRestClient .up.|> IForecastService
+ForecastTransportRestClient .right.> ServiceHostRestAPI
+ServiceHostRestAPI .up.|> IForecastService
+
+hide empty members
+@enduml

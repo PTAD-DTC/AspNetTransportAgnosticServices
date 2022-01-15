@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Interface\CommentService.Interface.csproj" />
+    <ProjectReference Include="..\Services\CommentService.Services.csproj" />
+  </ItemGroup>
+
+</Project>

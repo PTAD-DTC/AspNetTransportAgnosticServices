@@ -1,0 +1,36 @@
+### Variables
+@apiVersion=2.0
+@forecastId=3302f956-2d80-4876-8e35-16b19e40f7d0
+@commentId=73f03c5f-9848-4ff0-8a6b-92fb3a7796b4
+# base url override for Fiddler on localhost
+# @baseUrlForecastService=http://localhost.fiddler:6002
+
+###
+# GetForecastComments - comments for forecast
+###
+GET {{baseUrlForecastService}}/api/ForecastService/Comment/{{forecastId}}?api-version={{apiVersion}}
+
+###
+# GetComment - specified comment
+###
+GET {{baseUrlForecastService}}/api/ForecastService/Comment/{{forecastId}}/{{commentId}}?api-version={{apiVersion}}
+
+###
+# AddComment - Creates new comment
+###
+POST {{baseUrlForecastService}}/api/ForecastService/Comment/{{forecastId}}?api-version={{apiVersion}}
+Content-Type: application/json
+
+{
+    "comment": "new comment"
+}
+
+###
+# UpdateComment - Updates comment
+###
+PUT {{baseUrlForecastService}}/api/ForecastService/Comment/{{forecastId}}/{{commentId}}?api-version={{apiVersion}}
+Content-Type: application/json
+
+{
+  "comment": "updated comment"
+}

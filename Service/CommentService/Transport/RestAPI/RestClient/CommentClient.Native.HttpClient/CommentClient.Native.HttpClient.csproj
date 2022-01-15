@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations" Version="2021.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\Infrastructure\RestAPI\Client\ServiceBaseClient.HttpClient.Base\ServiceBaseClient.HttpClient.Base.csproj" />
+    <ProjectReference Include="..\..\..\..\Interface\CommentService.Interface.csproj" />
+    <ProjectReference Include="..\..\RestDefinitions\CommentService.RestDefinitions.csproj" />
+  </ItemGroup>
+
+</Project>

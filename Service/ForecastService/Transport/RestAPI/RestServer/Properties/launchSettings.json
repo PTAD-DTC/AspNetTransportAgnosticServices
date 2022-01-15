@@ -1,0 +1,21 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:6412/",
+      "sslPort": 44307
+    }
+  },
+  "profiles": {
+    "ForecastService.RestServer": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "swagger/api/forecastservice",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:6001;http://localhost:6002;"
+    }
+  }
+}

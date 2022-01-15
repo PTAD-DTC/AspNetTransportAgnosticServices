@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <Configurations>Debug;Release;DebugCommentService</Configurations>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>ForecastService.RestServer.xml</DocumentationFile>
+    <DefineConstants>TRACE;USESWAGGER</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugCommentService|AnyCPU'">
+    <DocumentationFile>ForecastService.RestServer.xml</DocumentationFile>
+    <DefineConstants>TRACE;USESWAGGER;COMMENTSERVICECODE</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>ForecastService.RestServer.xml</DocumentationFile>
+    <DefineConstants>TRACE;USESWAGGER</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations" Version="2021.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Infrastructure\RestAPI\Server\RestServer.Swagger\Service.RestServer.Swagger.csproj" />
+    <ProjectReference Include="..\..\..\..\Infrastructure\RestAPI\Server\Service.RestServer.Base\Service.RestServer.Base.csproj" />
+    <ProjectReference Include="..\RestConfiguration\ForecastService.RestServerConfiguration.csproj" />
+    <ProjectReference Include="..\RestDefinitions\ForecastService.RestDefinitions.csproj" />
+    <ProjectReference Include="..\RestExamples\ForecastService.RestExamples.csproj" />
+  </ItemGroup>
+
+  <ItemGroup Condition="$(DefineConstants.Contains('COMMENTSERVICECODE'))">
+    <ProjectReference Include="..\..\..\..\CommentService\Transport\RestAPI\RestConfiguration\CommentService.RestServerConfiguration.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ForecastService.Interface">
+      <HintPath>..\..\..\Interface\bin\Debug\net6.0\ForecastService.Interface.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

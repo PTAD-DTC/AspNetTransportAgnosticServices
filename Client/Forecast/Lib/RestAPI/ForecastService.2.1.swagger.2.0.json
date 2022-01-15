@@ -1,0 +1,503 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Forecast Service v2.1",
+    "version": "2.1"
+  },
+  "paths": {
+    "/api/forecastservice/Comment/{forecastId}": {
+      "get": {
+        "tags": [
+          "Comment"
+        ],
+        "summary": "Returns comments for forecast",
+        "operationId": "GetForecastComments",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "forecastId",
+            "description": "Forecast id",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "in": "query",
+            "name": "api-version",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Comments are returned",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ForecastCommentDto"
+              }
+            }
+          },
+          "404": {
+            "description": "Forecast not found",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "500": {
+            "description": "Request failed due to server-side error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Comment"
+        ],
+        "summary": "Creates new comment",
+        "operationId": "AddComment",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "forecastId",
+            "description": "Forecast id",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "in": "query",
+            "name": "api-version",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Comment data",
+            "schema": {
+              "$ref": "#/definitions/ForecastCommentDataDto"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Comment was created and returned",
+            "schema": {
+              "$ref": "#/definitions/ForecastCommentDto"
+            }
+          },
+          "404": {
+            "description": "Forecast not found",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "500": {
+            "description": "Request failed due to server-side error"
+          }
+        }
+      }
+    },
+    "/api/forecastservice/Comment/{forecastId}/{commentId}": {
+      "get": {
+        "tags": [
+          "Comment"
+        ],
+        "summary": "Returns specified comment",
+        "operationId": "GetComment",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "forecastId",
+            "description": "Forecast id",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "in": "path",
+            "name": "commentId",
+            "description": "Comment id",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "in": "query",
+            "name": "api-version",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Comment is returned",
+            "schema": {
+              "$ref": "#/definitions/ForecastCommentDto"
+            }
+          },
+          "404": {
+            "description": "Comment not found",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "500": {
+            "description": "Request failed due to server-side error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Comment"
+        ],
+        "summary": "Updates comment",
+        "operationId": "UpdateComment",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "forecastId",
+            "description": "Forecast id",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "in": "path",
+            "name": "commentId",
+            "description": "comment id",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "in": "query",
+            "name": "api-version",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Comment",
+            "schema": {
+              "$ref": "#/definitions/ForecastCommentDataDto"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Comment was updated and returned",
+            "schema": {
+              "$ref": "#/definitions/ForecastCommentDto"
+            }
+          },
+          "404": {
+            "description": "Comment not found",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "500": {
+            "description": "Request failed due to server-side error"
+          }
+        }
+      }
+    },
+    "/api/forecastservice/Forecast/today": {
+      "get": {
+        "tags": [
+          "Forecast"
+        ],
+        "summary": "Returns today's forecasts for all locations",
+        "operationId": "GetTodayForecasts",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "api-version",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Forecasts are returned",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/WeatherForecastDto"
+              }
+            }
+          },
+          "404": {
+            "description": "No forecasts",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "500": {
+            "description": "Request failed due to server-side error"
+          }
+        }
+      }
+    },
+    "/api/forecastservice/Forecast/location/{location}": {
+      "get": {
+        "tags": [
+          "Forecast"
+        ],
+        "summary": "Returns forecasts for specified location",
+        "operationId": "GetLocationForecasts",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "location",
+            "description": "location name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "api-version",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Forecasts are returned",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/WeatherForecastDto"
+              }
+            }
+          },
+          "404": {
+            "description": "Location not found",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "500": {
+            "description": "Request failed due to server-side error"
+          }
+        }
+      }
+    },
+    "/api/forecastservice/Forecast/{forecastId}": {
+      "get": {
+        "tags": [
+          "Forecast"
+        ],
+        "summary": "Returns specified forecast",
+        "operationId": "GetForecast",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "forecastId",
+            "description": "",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "in": "query",
+            "name": "api-version",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Forecast is returned",
+            "schema": {
+              "$ref": "#/definitions/WeatherForecastDto"
+            }
+          },
+          "404": {
+            "description": "Forecast not found",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "500": {
+            "description": "Request failed due to server-side error"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ForecastCommentDataDto": {
+      "type": "object",
+      "properties": {
+        "comment": {
+          "type": "string"
+        }
+      }
+    },
+    "ForecastCommentDto": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "forecastId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "commentData": {
+          "$ref": "#/definitions/ForecastCommentDataDto"
+        }
+      }
+    },
+    "ProblemDetails": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "status": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "detail": {
+          "type": "string"
+        },
+        "instance": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {
+        "type": "object"
+      }
+    },
+    "ForecastProbabilityDto": {
+      "enum": [
+        "notDefined",
+        "guaranteed",
+        "high",
+        "low"
+      ],
+      "type": "string"
+    },
+    "WeatherForecastDto": {
+      "type": "object",
+      "properties": {
+        "location": {
+          "type": "string"
+        },
+        "id": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "date": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "celsius": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "fahrenheit": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "info": {
+          "type": "string"
+        },
+        "chance": {
+          "$ref": "#/definitions/ForecastProbabilityDto"
+        }
+      }
+    }
+  }
+}

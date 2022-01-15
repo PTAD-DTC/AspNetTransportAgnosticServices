@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BenchmarkDotNet" Version="0.13.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Service\CommentService\Implementation\BusinessLogic\CommentService.BusinessLogic.csproj" />
+    <ProjectReference Include="..\..\Service\CommentService\Implementation\Core\CommentService.Core.csproj" />
+    <ProjectReference Include="..\..\Service\CommentService\Implementation\DtoBlMapper\CommentService.DtoBlMapper.csproj" />
+    <ProjectReference Include="..\..\Service\CommentService\Implementation\Persistence\CommentService.Persistence.csproj" />
+    <ProjectReference Include="..\..\Service\ForecastService\Implementation\BusinessLogic\ForecastService.BusinessLogic.csproj" />
+    <ProjectReference Include="..\..\Service\ForecastService\Implementation\CommentService\ForecastService.CommentService.csproj" />
+    <ProjectReference Include="..\..\Service\ForecastService\Implementation\Core\ForecastService.Core.csproj" />
+    <ProjectReference Include="..\..\Service\ForecastService\Implementation\DtoBlMapper\ForecastService.DtoBlMapper.csproj" />
+    <ProjectReference Include="..\..\Service\ForecastService\Implementation\Persistence\ForecastService.Persistence.csproj" />
+    <ProjectReference Include="..\..\Service\ForecastService\Implementation\Services\ForecastService.Services.csproj" />
+    <ProjectReference Include="..\..\Service\ForecastService\Transport\RestAPI\RestClient\Native.HttpClient\ForecastClient.Native.HttpClient.csproj" />
+    <ProjectReference Include="..\..\Service\ForecastService\Transport\RestAPI\RestClient\Native.RestClient\ForecastClient.Native.RestClient.csproj" />
+  </ItemGroup>
+
+</Project>
