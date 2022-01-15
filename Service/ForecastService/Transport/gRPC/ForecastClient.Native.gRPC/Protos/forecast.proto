@@ -1,0 +1,40 @@
+syntax = "proto3";
+	
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+	
+option csharp_namespace = "ForecastService.gRPCClient";
+
+package forecast;
+	
+// The Forecast service definition.
+service Forecast {
+	// Sends a greeting
+	rpc GetTodayForecasts (GetTodayForecastsRequest) returns (GetTodayForecastsReply);
+}
+	
+// The request message
+message GetTodayForecastsRequest {
+}
+	
+message WeatherForecast{
+	string id = 1;
+	google.protobuf.Timestamp date = 2;
+	int32 celsius = 3;
+	google.protobuf.Int32Value fahrenheit = 4;
+	string summary = 5;
+	string description = 6;
+	string location = 7;
+	enum Probability {
+		NOTDEFINED = 0;
+		GUARANTEED = 1;
+		HIGH = 2;
+		LOW = 3;
+	}
+	Probability probability = 8;
+}
+	
+// The response message containing forecasts.
+message GetTodayForecastsReply {
+	repeated WeatherForecast forecasts = 1;
+}

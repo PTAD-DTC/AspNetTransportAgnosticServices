@@ -22,6 +22,7 @@
     <ProjectReference Include="..\..\Service\ForecastService\Implementation\DtoBlMapper\ForecastService.DtoBlMapper.csproj" />
     <ProjectReference Include="..\..\Service\ForecastService\Implementation\Persistence\ForecastService.Persistence.csproj" />
     <ProjectReference Include="..\..\Service\ForecastService\Implementation\Services\ForecastService.Services.csproj" />
+    <ProjectReference Include="..\..\Service\ForecastService\Transport\gRPC\ForecastClient.Native.gRPC\ForecastClient.Native.gRPC.csproj" />
     <ProjectReference Include="..\..\Service\ForecastService\Transport\RestAPI\RestClient\Native.HttpClient\ForecastClient.Native.HttpClient.csproj" />
     <ProjectReference Include="..\..\Service\ForecastService\Transport\RestAPI\RestClient\Native.RestClient\ForecastClient.Native.RestClient.csproj" />
   </ItemGroup>

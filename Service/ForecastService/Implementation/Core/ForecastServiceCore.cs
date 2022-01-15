@@ -26,8 +26,8 @@ namespace ForecastService.Core
         /// <inheritdoc cref="IForecastService" />
         public async Task<CallResult<IReadOnlyCollection<WeatherForecastDto>?>> GetTodayForecasts(CancellationToken cancellationToken)
         {
-            var forecasts = await ForecastServiceLogic.GetTodayForecasts(cancellationToken);
-            return CallResult(forecasts);
+            //var forecasts = await ForecastServiceLogic.GetTodayForecasts(cancellationToken);
+            //return CallResult(forecasts);
 
             //Transport benchmark
             var forecastsGenCount = 5000;

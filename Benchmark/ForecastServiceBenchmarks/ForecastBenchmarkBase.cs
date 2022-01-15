@@ -13,6 +13,7 @@ namespace ForecastServiceBenchmarks
     public abstract class ForecastBenchmarkBase
     {
         private static readonly Uri DefaultLocalServiceUri = new("http://localhost:6002/");
+        private static readonly Uri DefaultgRpcServiceUri = new("https://localhost:7060");
         //private static readonly Uri DefaultLocalServiceUri = new ("https://localhost:6001/");
 
         private static IForecastService CreateForecastServiceCoreV2S1() =>
@@ -28,6 +29,9 @@ namespace ForecastServiceBenchmarks
             Uri serviceUri) => new(serviceUri);
 
         private static ForecastClient.Native.RestClient.ForecastApiClient CreateRestServiceClient(
+            Uri serviceUri) => new(serviceUri);
+
+        private static ForecastClient.Native.gRPC.ForecastGrpcClient CreategRpcServiceClient(
             Uri serviceUri) => new(serviceUri);
 
         private static void ServiceRestartRequest(Uri serviceUri)
@@ -67,6 +71,14 @@ namespace ForecastServiceBenchmarks
             forecastServiceCoreV2S1 = CreateRestServiceClient(uri);
         }
 
+        [GlobalSetup(Target = nameof(TransportgRpcClient))]
+        public void PrepareForecastServicegRpcClient()
+        {
+            var uri = DefaultgRpcServiceUri;
+            ServiceRestartRequest(uri);
+            forecastServiceCoreV2S1 = CreategRpcServiceClient(uri);
+        }
+
         [Benchmark(Baseline = true)]
         public Task ServiceCore() =>
             DoTest(forecastServiceCoreV2S1!, CancellationToken.None);
@@ -77,6 +89,10 @@ namespace ForecastServiceBenchmarks
 
         [Benchmark]
         public Task TransportRestClient() =>
+            DoTest(forecastServiceCoreV2S1!, CancellationToken.None);
+
+        [Benchmark]
+        public Task TransportgRpcClient() =>
             DoTest(forecastServiceCoreV2S1!, CancellationToken.None);
 
         protected abstract Task DoTest(IForecastService service, CancellationToken cancellationToken);
